@@ -1,25 +1,32 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Kattoo Gattoo Tattoo – Tatuadora en Tijuana y San Diego</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Kattoo Gattoo Tattoo es una artista profesional en Tijuana, especializada en tatuajes realistas, blackwork y handpoke. Atiende clientes de Tijuana y San Diego. Agenda tu cita por WhatsApp.">
   <meta name="keywords" content="tatuadora en Tijuana, tatuajes en San Diego, blackwork, handpoke, retratos, tatuajes realistas, The Gallery Tattoo Studio, Kattoo Gattoo Tattoo">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root {
       --rosa-claro: #fce4ec;
-      --rosa-medio: #f8bbd0;
       --rosa-fuerte: #ec407a;
       --gris-oscuro: #212121;
       --blanco: #fff;
     }
+    * {
+      box-sizing: border-box;
+    }
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: var(--rosa-claro);
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+      animation: gradientShift 15s ease infinite;
       color: var(--gris-oscuro);
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     header {
       background: var(--rosa-fuerte);
@@ -88,6 +95,15 @@
       color: var(--rosa-fuerte);
       margin-top: 2em;
     }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
     .slider {
       display: flex;
       overflow-x: auto;
@@ -100,13 +116,11 @@
       height: auto;
       border-radius: 8px;
       scroll-snap-align: center;
-      transition: transform 0.3s ease, opacity 0.6s ease;
-      opacity: 0;
-      transform: translateY(20px);
+      transition: transform 0.3s ease;
     }
-    .slider img.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .slider img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(236, 64, 122, 0.5);
     }
     .whatsapp {
       display: block;
@@ -119,24 +133,6 @@
       border-radius: 5px;
       text-decoration: none;
       width: fit-content;
-    }
-    .social {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 1em;
-      flex-wrap: wrap;
-    }
-    .social a {
-      text-decoration: none;
-      color: var(--rosa-fuerte);
-      font-weight: bold;
-    }
-    .lang-es, .lang-en {
-      display: none;
-    }
-    .active {
-      display: block;
     }
     form {
       display: flex;
@@ -166,11 +162,34 @@
       margin-top: 2em;
       border-radius: 8px;
     }
+    .social {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 1em;
+      flex-wrap: wrap;
+    }
+    .social a {
+      text-decoration: none;
+      color: var(--rosa-fuerte);
+      font-weight: bold;
+    }
+    .lang-es, .lang-en {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
     footer {
       background: var(--rosa-fuerte);
       color: var(--blanco);
       text-align: center;
       padding: 1em;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8em; }
+      .slider img { width: 90%; }
+      .container { padding: 1em; }
     }
   </style>
 </head>
@@ -187,66 +206,69 @@
   </header>
 
   <div class="container lang-es active">
-    <h2>Sobre mí</h2>
-    <p>Soy <strong>Kattoo Gattoo</strong>, artista residente en <strong>The Gallery Tattoo Studio</strong>, ubicado en <strong>Lobo Blanco 20028, Los Lobos, 22207 Tijuana, Baja California</strong>. Especializada en <strong>realismo</strong>, <strong>blackwork</strong>, <strong>handpoke</strong> y <strong>tatuajes a máquina</strong>.</p>
+    <h2 class="fade-in">Sobre mí</h2>
+    <p class="fade-in">Soy <strong>Kattoo Gattoo</strong>, artista residente en <strong>The Gallery Tattoo Studio</strong>, ubicado en <strong>Lobo Blanco 20028, Los Lobos, 22207 Tijuana, Baja California</strong>. Especializada en <strong>realismo</strong>, <strong>blackwork</strong>, <strong>handpoke</strong> y <strong>tatuajes a máquina</strong>.</p>
 
-    <h2>Galería</h2>
-    <div class="slider">
+    <h2 class="fade-in">Galería</h2>
+    <div class="slider fade-in">
       <img src="https://cdn.sliderrevolution.com/wp-content/uploads/2023/03/tattoo-template-hero.jpg" alt="Diseño de estudio de tatuajes">
       <img src="https://muffingroup.com/blog/wp-content/uploads/2021/03/tattoo-website-design.jpg" alt="Ejemplo de sitio web de tatuador">
       <img src="tattoo1.jpg" alt="Tatuaje personalizado 1">
       <img src="tattoo2.jpg" alt="Tatuaje personalizado 2">
     </div>
 
-    <a class="whatsapp" href="https://wa.me/526647618280" target="_blank">📲 664 761 8280 – ¡Agendar por WhatsApp!</a>
+    <a class="whatsapp fade-in" href="https://wa.me/526647618280" target="_blank">📲 664 761 8280 – ¡Agendar por WhatsApp!</a>
 
-    <h2>Contacto</h2>
-    <form>
+    <h2 class="fade-in">Contacto</h2>
+    <form class="fade-in">
       <input type="text" placeholder="Tu nombre" required>
       <input type="email" placeholder="Tu correo electrónico" required>
       <textarea rows="5" placeholder="Mensaje o consulta" required></textarea>
       <button type="submit">Enviar mensaje</button>
     </form>
 
-    <h2>Ubicación</h2>
-    <iframe src="https://www.google.com/maps?q=Lobo+Blanco+20028,+Los+Lobos,+22207+Tijuana,+B.C.&output=embed"></iframe>
+    <h2 class="fade-in">Ubicación</h2>
+    <iframe class="fade-in" src="https://www.google.com/maps?q=Lobo+Blanco+20028,+Los+Lobos,+22207+Tijuana,+B.C.&output=embed"></iframe>
+    <h2 class="fade-in">Location</h2>
+    <iframe class="fade-in" src="https://www.google.com/maps?q=Lobo+Blanco+20028,+Los+Lobos,+22207+Tijuana,+B.C.&output=embed"></iframe>
 
-    <h2>Redes sociales</h2>
-    <div class="social">
+    <h2 class="fade-in">Social Media</h2>
+    <div class="social fade-in">
       <a href="https://www.instagram.com/kattoo_gattoo_tattoo" target="_blank">📸 Instagram</a>
-      <a href="https://www.instagram.com/katy_d_esquivel_retratos" target="_blank">🎨 Retratos</a>
+      <a href="https://www.instagram.com/katy_d_esquivel_retratos" target="_blank">🎨 Portraits</a>
       <a href="https://www.facebook.com/kattoogattoo.tattoo" target="_blank">📘 Facebook</a>
       <a href="https://www.tiktok.com/@katy_d_esquivel" target="_blank">🎥 TikTok</a>
       <a href="https://www.threads.net/@kattoo_gattoo_tattoo" target="_blank">🧵 Threads</a>
     </div>
   </div>
-  <div class="container lang-en">
-        <h2>About Me</h2>
-    <p>I'm <strong>Kattoo Gattoo</strong>, a resident artist at <strong>The Gallery Tattoo Studio</strong>, located at <strong>Lobo Blanco 20028, Los Lobos, 22207 Tijuana, Baja California</strong>. I specialize in <strong>realism</strong>, <strong>blackwork</strong>, <strong>handpoke</strong>, and <strong>machine tattoos</strong>.</p>
 
-    <h2>Gallery</h2>
-    <div class="slider">
+  <div class="container lang-en">
+    <h2 class="fade-in">About Me</h2>
+    <p class="fade-in">I'm <strong>Kattoo Gattoo</strong>, a full-time tattoo artist based at <strong>The Gallery Tattoo Studio</strong>, located at <strong>Lobo Blanco 20028, Los Lobos, 22207 Tijuana, Baja California</strong>. I specialize in <strong>realism</strong>, <strong>blackwork</strong>, <strong>handpoke</strong>, and <strong>machine tattoos</strong>.</p>
+
+    <h2 class="fade-in">Gallery</h2>
+    <div class="slider fade-in">
       <img src="https://cdn.sliderrevolution.com/wp-content/uploads/2023/03/tattoo-template-hero.jpg" alt="Tattoo studio design">
       <img src="https://muffingroup.com/blog/wp-content/uploads/2021/03/tattoo-website-design.jpg" alt="Tattoo website example">
       <img src="tattoo1.jpg" alt="Custom tattoo 1">
       <img src="tattoo2.jpg" alt="Custom tattoo 2">
     </div>
 
-    <a class="whatsapp" href="https://wa.me/526647618280" target="_blank">📲 664 761 8280 – Book via WhatsApp</a>
+    <a class="whatsapp fade-in" href="https://wa.me/526647618280" target="_blank">📲 664 761 8280 – Book via WhatsApp</a>
 
-    <h2>Contact</h2>
-    <form>
+    <h2 class="fade-in">Contact</h2>
+    <form class="fade-in">
       <input type="text" placeholder="Your name" required>
       <input type="email" placeholder="Your email" required>
       <textarea rows="5" placeholder="Message or inquiry" required></textarea>
       <button type="submit">Send Message</button>
     </form>
 
-    <h2>Location</h2>
-    <iframe src="https://www.google.com/maps?q=Lobo+Blanco+20028,+Los+Lobos,+22207+Tijuana,+B.C.&output=embed"></iframe>
+    <h2 class="fade-in">Location</h2>
+    <iframe class="fade-in" src="https://www.google.com/maps?q=Lobo+Blanco+20028,+Los+Lobos,+22207+Tijuana,+B.C.&output=embed"></iframe>
 
-    <h2>Social Media</h2>
-    <div class="social">
+    <h2 class="fade-in">Social Media</h2>
+    <div class="social fade-in">
       <a href="https://www.instagram.com/kattoo_gattoo_tattoo" target="_blank">📸 Instagram</a>
       <a href="https://www.instagram.com/katy_d_esquivel_retratos" target="_blank">🎨 Portraits</a>
       <a href="https://www.facebook.com/kattoogattoo.tattoo" target="_blank">📘 Facebook</a>
@@ -268,14 +290,14 @@
     }
 
     window.addEventListener('scroll', () => {
-      document.querySelectorAll('.slider img').forEach(img => {
-        const rect = img.getBoundingClientRect();
+      document.querySelectorAll('.fade-in').forEach(el => {
+        const rect = el.getBoundingClientRect();
         if (rect.top < window.innerHeight - 50) {
-          img.classList.add('visible');
+          el.classList.add('visible');
         }
       });
     });
   </script>
 </body>
 </html>
-    
+   
