@@ -9,29 +9,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root {
-      --rosa-claro: #f8d7e3;
-      --rosa-medio: #e89bbd;
-      --rosa-fuerte: #d94f9f;
-      --gris-oscuro: #333;
+      --rosa-claro: #fce4ec;
+      --rosa-medio: #f8bbd0;
+      --rosa-fuerte: #ec407a;
+      --gris-oscuro: #212121;
       --blanco: #fff;
     }
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 0;
       background: var(--rosa-claro);
       color: var(--gris-oscuro);
     }
-    header, footer {
+    header {
       background: var(--rosa-fuerte);
       color: var(--blanco);
+      padding: 2em;
       text-align: center;
-      padding: 1em;
       position: relative;
     }
     h1 {
-      margin: 0.2em 0;
-      font-size: 2em;
+      margin: 0;
+      font-size: 2.5em;
     }
     .toggle {
       position: absolute;
@@ -75,9 +74,6 @@
       border-radius: 50%;
       transition: .4s;
     }
-    input:checked + .slider-switch {
-      background-color: var(--blanco);
-    }
     input:checked + .slider-switch:before {
       transform: translateX(30px);
       content: "EN";
@@ -85,7 +81,7 @@
     .container {
       max-width: 960px;
       margin: auto;
-      padding: 1em;
+      padding: 2em;
     }
     h2 {
       text-align: center;
@@ -135,9 +131,6 @@
       text-decoration: none;
       color: var(--rosa-fuerte);
       font-weight: bold;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
     .lang-es, .lang-en {
       display: none;
@@ -145,9 +138,39 @@
     .active {
       display: block;
     }
-    footer p {
-      margin: 0.5em 0;
-      font-size: 0.9em;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      margin-top: 2em;
+    }
+    input, textarea {
+      padding: 0.8em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+    button {
+      background: var(--rosa-fuerte);
+      color: var(--blanco);
+      border: none;
+      padding: 0.8em;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      margin-top: 2em;
+      border-radius: 8px;
+    }
+    footer {
+      background: var(--rosa-fuerte);
+      color: var(--blanco);
+      text-align: center;
+      padding: 1em;
     }
   </style>
 </head>
@@ -167,17 +190,26 @@
     <h2>Sobre mí</h2>
     <p>Soy <strong>Kattoo Gattoo</strong>, artista residente en <strong>The Gallery Tattoo Studio</strong>, ubicado en <strong>Lobo Blanco 20028, Los Lobos, 22207 Tijuana, Baja California</strong>. Especializada en <strong>realismo</strong>, <strong>blackwork</strong>, <strong>handpoke</strong> y <strong>tatuajes a máquina</strong>.</p>
 
-    <h2>Clientes de Tijuana y San Diego</h2>
-    <p>Atiendo tanto a clientes locales como a visitantes de <strong>San Diego</strong> que cruzan la frontera para tatuarse con una artista dedicada. Mi estilo único y atención personalizada me han convertido en una opción popular en la región binacional.</p>
-
     <h2>Galería</h2>
     <div class="slider">
-      <img src="tattoo1.jpg" alt="Tatuaje realista de lobo">
-      <img src="tattoo2.jpg" alt="Blackwork en antebrazo">
-      <img src="tattoo3.jpg" alt="Tatuaje personalizado en espalda">
+      <img src="https://cdn.sliderrevolution.com/wp-content/uploads/2023/03/tattoo-template-hero.jpg" alt="Diseño de estudio de tatuajes">
+      <img src="https://muffingroup.com/blog/wp-content/uploads/2021/03/tattoo-website-design.jpg" alt="Ejemplo de sitio web de tatuador">
+      <img src="tattoo1.jpg" alt="Tatuaje personalizado 1">
+      <img src="tattoo2.jpg" alt="Tatuaje personalizado 2">
     </div>
 
     <a class="whatsapp" href="https://wa.me/526647618280" target="_blank">📲 664 761 8280 – ¡Agendar por WhatsApp!</a>
+
+    <h2>Contacto</h2>
+    <form>
+      <input type="text" placeholder="Tu nombre" required>
+      <input type="email" placeholder="Tu correo electrónico" required>
+      <textarea rows="5" placeholder="Mensaje o consulta" required></textarea>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+
+    <h2>Ubicación</h2>
+    <iframe src="https://www.google.com/maps?q=Lobo+Blanco+20028,+Los+Lobos,+22207+Tijuana,+B.C.&output=embed"></iframe>
 
     <h2>Redes sociales</h2>
     <div class="social">
@@ -188,22 +220,47 @@
       <a href="https://www.threads.net/@kattoo_gattoo_tattoo" target="_blank">🧵 Threads</a>
     </div>
   </div>
-
   <div class="container lang-en">
-    <h2>About Me</h2>
+        <h2>About Me</h2>
     <p>I'm <strong>Kattoo Gattoo</strong>, a resident artist at <strong>The Gallery Tattoo Studio</strong>, located at <strong>Lobo Blanco 20028, Los Lobos, 22207 Tijuana, Baja California</strong>. I specialize in <strong>realism</strong>, <strong>blackwork</strong>, <strong>handpoke</strong>, and <strong>machine tattoos</strong>.</p>
-
-    <h2>Clients from Tijuana and San Diego</h2>
-    <p>I serve both local clients and visitors from <strong>San Diego</strong> who cross the border to get tattooed by a dedicated artist. My unique style and personalized attention have made me a popular choice in the binational region.</p>
 
     <h2>Gallery</h2>
     <div class="slider">
-      <img src="tattoo1.jpg" alt="Realistic wolf tattoo">
-      <img src="tattoo2.jpg" alt="Blackwork on forearm">
-      <img src="tattoo3.jpg" alt="Custom back tattoo">
+      <img src="https://cdn.sliderrevolution.com/wp-content/uploads/2023/03/tattoo-template-hero.jpg" alt="Tattoo studio design">
+      <img src="https://muffingroup.com/blog/wp-content/uploads/2021/03/tattoo-website-design.jpg" alt="Tattoo website example">
+      <img src="tattoo1.jpg" alt="Custom tattoo 1">
+      <img src="tattoo2.jpg" alt="Custom tattoo 2">
     </div>
 
-      <script>
+    <a class="whatsapp" href="https://wa.me/526647618280" target="_blank">📲 664 761 8280 – Book via WhatsApp</a>
+
+    <h2>Contact</h2>
+    <form>
+      <input type="text" placeholder="Your name" required>
+      <input type="email" placeholder="Your email" required>
+      <textarea rows="5" placeholder="Message or inquiry" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <h2>Location</h2>
+    <iframe src="https://www.google.com/maps?q=Lobo+Blanco+20028,+Los+Lobos,+22207+Tijuana,+B.C.&output=embed"></iframe>
+
+    <h2>Social Media</h2>
+    <div class="social">
+      <a href="https://www.instagram.com/kattoo_gattoo_tattoo" target="_blank">📸 Instagram</a>
+      <a href="https://www.instagram.com/katy_d_esquivel_retratos" target="_blank">🎨 Portraits</a>
+      <a href="https://www.facebook.com/kattoogattoo.tattoo" target="_blank">📘 Facebook</a>
+      <a href="https://www.tiktok.com/@katy_d_esquivel" target="_blank">🎥 TikTok</a>
+      <a href="https://www.threads.net/@kattoo_gattoo_tattoo" target="_blank">🧵 Threads</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Kattoo Gattoo Tattoo – Tijuana, Baja California</p>
+    <p>Studio: Lobo Blanco 20028, Los Lobos, 22207 Tijuana, B.C.</p>
+  </footer>
+
+  <script>
     function toggleLanguage(switchElement) {
       const isEnglish = switchElement.checked;
       document.querySelector('.lang-es').classList.toggle('active', !isEnglish);
@@ -221,4 +278,4 @@
   </script>
 </body>
 </html>
-
+    
