@@ -1,16 +1,4 @@
-¡Aquí tienes el sitio web completo y optimizado para **Kattoo Gattoo Tattoo**, listo para copiar y pegar en tu archivo `index.html` en GitHub Pages! Este diseño incluye:
 
-- 🌐 Toggle de idioma en la parte superior derecha
-- 🎞️ Galería tipo slider para tatuajes
-- 📱 Redes sociales con íconos SVG
-- ✨ Animaciones suaves
-- 🧠 SEO local para Tijuana y San Diego
-
----
-
-## ✅ Código completo para `index.html`
-
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,42 +8,89 @@
   <meta name="keywords" content="tatuadora en Tijuana, tatuajes en San Diego, blackwork, handpoke, retratos, tatuajes realistas, The Gallery Tattoo Studio, Kattoo Gattoo Tattoo">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    :root {
+      --rosa-claro: #f8d7e3;
+      --rosa-medio: #e89bbd;
+      --rosa-fuerte: #d94f9f;
+      --gris-oscuro: #333;
+      --blanco: #fff;
+    }
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f9f9f9;
-      color: #333;
+      background: var(--rosa-claro);
+      color: var(--gris-oscuro);
     }
     header, footer {
-      background: #111;
-      color: #fff;
+      background: var(--rosa-fuerte);
+      color: var(--blanco);
       text-align: center;
       padding: 1em;
       position: relative;
+    }
+    h1 {
+      margin: 0.2em 0;
+      font-size: 2em;
     }
     .toggle {
       position: absolute;
       top: 1em;
       right: 1em;
     }
-    .toggle button {
-      padding: 0.5em 1em;
-      font-size: 0.9em;
-      cursor: pointer;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 30px;
     }
-    h1, h2 {
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider-switch {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0;
+      right: 0; bottom: 0;
+      background-color: var(--blanco);
+      border: 2px solid var(--rosa-fuerte);
+      border-radius: 30px;
+      transition: .4s;
+    }
+    .slider-switch:before {
+      position: absolute;
+      content: "ES";
+      height: 26px;
+      width: 26px;
+      left: 2px;
+      bottom: 2px;
+      background-color: var(--rosa-fuerte);
+      color: var(--blanco);
+      font-size: 0.8em;
+      font-weight: bold;
       text-align: center;
-      margin-top: 1.5em;
-      color: #222;
+      line-height: 26px;
+      border-radius: 50%;
+      transition: .4s;
+    }
+    input:checked + .slider-switch {
+      background-color: var(--blanco);
+    }
+    input:checked + .slider-switch:before {
+      transform: translateX(30px);
+      content: "EN";
     }
     .container {
       max-width: 960px;
       margin: auto;
       padding: 1em;
+    }
+    h2 {
+      text-align: center;
+      color: var(--rosa-fuerte);
+      margin-top: 2em;
     }
     .slider {
       display: flex;
@@ -69,7 +104,7 @@
       height: auto;
       border-radius: 8px;
       scroll-snap-align: center;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, opacity 0.6s ease;
       opacity: 0;
       transform: translateY(20px);
     }
@@ -77,15 +112,12 @@
       opacity: 1;
       transform: translateY(0);
     }
-    .slider img:hover {
-      transform: scale(1.05);
-    }
     .whatsapp {
       display: block;
       margin: 2em auto;
       padding: 1em;
-      background: #25D366;
-      color: white;
+      background: var(--rosa-fuerte);
+      color: var(--blanco);
       text-align: center;
       font-weight: bold;
       border-radius: 5px;
@@ -101,16 +133,11 @@
     }
     .social a {
       text-decoration: none;
-      color: #333;
+      color: var(--rosa-fuerte);
+      font-weight: bold;
       display: flex;
       align-items: center;
       gap: 8px;
-      font-weight: bold;
-    }
-    .social svg {
-      width: 20px;
-      height: 20px;
-      fill: #333;
     }
     .lang-es, .lang-en {
       display: none;
@@ -129,8 +156,10 @@
     <h1>Kattoo Gattoo Tattoo</h1>
     <p>Tatuadora profesional en Tijuana – Clientes desde San Diego bienvenidos</p>
     <div class="toggle">
-      <button onclick="switchLanguage('es')">Español</button>
-      <button onclick="switchLanguage('en')">English</button>
+      <label class="switch">
+        <input type="checkbox" onchange="toggleLanguage(this)">
+        <span class="slider-switch"></span>
+      </label>
     </div>
   </header>
 
@@ -174,37 +203,4 @@
       <img src="tattoo3.jpg" alt="Custom back tattoo">
     </div>
 
-    <a class="whatsapp" href="https://wa.me/526647618280" target="_blank">📲 664 761 8280 – Book via WhatsApp</a>
-
-    <h2>Social Media</h2>
-    <div class="social">
-      <a href="https://www.instagram.com/kattoo_gattoo_tattoo" target="_blank">📸 Instagram</a>
-      <a href="https://www.instagram.com/katy_d_esquivel_retratos" target="_blank">🎨 Portraits</a>
-      <a href="https://www.facebook.com/kattoogattoo.tattoo" target="_blank">📘 Facebook</a>
-      <a href="https://www.tiktok.com/@katy_d_esquivel" target="_blank">🎥 TikTok</a>
-      <a href="https://www.threads.net/@kattoo_gattoo_tattoo" target="_blank">🧵 Threads</a>
-    </div>
-  </div>
-
-  <footer>
-    <p>© 2025 Kattoo Gattoo Tattoo – Tijuana, Baja California</p>
-    <p>Ubicación: Lobo Blanco 20028, Los Lobos, 22207 Tijuana, B.C.</p>
-  </footer>
-  <script>
-    function switchLanguage(lang) {
-      document.querySelector('.lang-es').classList.remove('active');
-      document.querySelector('.lang-en').classList.remove('active');
-      document.querySelector('.lang-' + lang).classList.add('active');
-    }
-
-    window.addEventListener('scroll', () => {
-      document.querySelectorAll('.slider img').forEach(img => {
-        const rect = img.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 50) {
-          img.classList.add('visible');
-        }
-      });
-    });
-  </script>
-</body>
-</html>
+    <a class="whatsapp" href="https://wa.me/526647618280" target="_blank">📲 664
