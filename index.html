@@ -203,4 +203,22 @@
       <img src="tattoo3.jpg" alt="Custom back tattoo">
     </div>
 
-    <a class="whatsapp" href="https://wa.me/526647618280" target="_blank">📲 664
+      <script>
+    function toggleLanguage(switchElement) {
+      const isEnglish = switchElement.checked;
+      document.querySelector('.lang-es').classList.toggle('active', !isEnglish);
+      document.querySelector('.lang-en').classList.toggle('active', isEnglish);
+    }
+
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.slider img').forEach(img => {
+        const rect = img.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          img.classList.add('visible');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
